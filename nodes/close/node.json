@@ -1,0 +1,23 @@
+{
+  "name": "close",
+  "ns": "readline",
+  "title": "Close",
+  "description": "Closes the Interface instance, relinquishing control on the input and output streams.",
+  "phrases": {
+    "active": "Closing"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    }
+  }
+}

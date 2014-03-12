@@ -1,0 +1,401 @@
+{
+  "name": "readline",
+  "description": "Readline nodes for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/readline.git"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "dir": {
+            "title": "Direction",
+            "enum": [
+              "left",
+              "right",
+              "all"
+            ],
+            "default": "all"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Clearing line"
+      },
+      "require": {
+        "readline": "builtin"
+      },
+      "description": "Clears current line of given TTY stream in a specified direction",
+      "title": "Clear Line",
+      "ns": "readline",
+      "name": "clearLine",
+      "fn": "var dir = { left: -1, right: 1, all: 0 };\nreadline.clearLine(input.readline, dir[input.dir]);\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Clearing screen"
+      },
+      "require": {
+        "readline": "builtin"
+      },
+      "description": "Clears the screen from the current position of the cursor down. ",
+      "title": "Clear Screen",
+      "ns": "readline",
+      "name": "clearScreen",
+      "fn": "readline.clearScreen(input.readline);\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Closing"
+      },
+      "description": "Closes the Interface instance, relinquishing control on the input and output streams.",
+      "title": "Close",
+      "ns": "readline",
+      "name": "close",
+      "fn": "input.readline.close();\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "input": {
+            "title": "Input Stream",
+            "type": "Stream"
+          },
+          "output": {
+            "title": "Output Stream",
+            "type": "Stream"
+          },
+          "terminal": {
+            "title": "Terminal",
+            "type": "boolean",
+            "default": null
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "line": {
+            "title": "Line",
+            "type": "any"
+          },
+          "pause": {
+            "title": "Pause",
+            "type": "any"
+          },
+          "resume": {
+            "title": "Resume",
+            "type": "any"
+          },
+          "close": {
+            "title": "Close",
+            "type": "any"
+          },
+          "SIGINT": {
+            "title": "SIGINT",
+            "type": "any"
+          },
+          "SIGTSTP": {
+            "title": "SIGTSTP",
+            "type": "any"
+          },
+          "SIGCONT": {
+            "title": "SIGCONT",
+            "type": "any"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Creating interface"
+      },
+      "require": {
+        "readline": "builtin"
+      },
+      "description": "Creates a readline Interface instance",
+      "title": "Create Interface",
+      "ns": "readline",
+      "name": "createInterface",
+      "fn": "output = function() {\n\n  var iface = readline.createInterface({\n    input: input.input,\n    output: input.output,\n    terminal: input.terminal || undefined\n  });\n\n  iface.on('line', function(line) {\n    cb({ line: line });\n  });\n\n  iface.on('pause', function() { cb({ pause: '' }); });\n  iface.on('resume', function() { cb({ resume: '' }); });\n  iface.on('close', function() { cb({ close: '' }); });\n  iface.on('SIGINT', function() { cb({ SIGINT: '' }); });\n  iface.on('SIGTSTP', function() { cb({ SIGTSTP: '' }); });\n  iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });\n\n  cb({\n    readline: iface\n  });\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "x": {
+            "title": "X Position",
+            "type": "number"
+          },
+          "y": {
+            "title": "Y Position",
+            "type": "number"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Moving cursor to {{input.x}}:{{input.y}}"
+      },
+      "require": {
+        "readline": "builtin"
+      },
+      "description": "Move cursor to the specified position in a given TTY stream.",
+      "title": "Cursor To",
+      "ns": "readline",
+      "name": "cursorTo",
+      "fn": "readline.cursorTo(input.readline, input.x, input.y);\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "x": {
+            "title": "X Position",
+            "type": "number"
+          },
+          "y": {
+            "title": "Y Position",
+            "type": "number"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Moving cursor {{input.x}}:{{input.y}}"
+      },
+      "require": {
+        "readline": "builtin"
+      },
+      "description": "Move cursor relative to it's current position in a given TTY stream. ",
+      "title": "Move Cursor",
+      "ns": "readline",
+      "name": "moveCursor",
+      "fn": "readline.moveCursor(input.readline, input.x, input.y);\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Pausing"
+      },
+      "description": "Pauses the readline input stream, allowing it to be resumed later if needed.",
+      "title": "Pause",
+      "ns": "readline",
+      "name": "pause",
+      "fn": "input.readline.pause();\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "preserveCursor": {
+            "title": "Preserve Cursor",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Prompting"
+      },
+      "description": "Readies readline for input from the user, putting the current setPrompt options on a new line, giving the user a new spot to write. Set preserveCursor to true to prevent the cursor placement being reset to 0.\n This will also resume the input stream used with createInterface if it has been paused. ",
+      "title": "Prompt",
+      "ns": "readline",
+      "name": "prompt",
+      "fn": "input.readline.prompt(input.preserveCursor || undefined);\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "query": {
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "output": {
+          "answer": {
+            "title": "Answer",
+            "type": "string"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Questioning"
+      },
+      "description": "Prompt with a question",
+      "title": "Question",
+      "ns": "readline",
+      "name": "question",
+      "fn": "output = [input.readline, 'question', input.query]\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Resuming"
+      },
+      "description": "Resumes the readline input stream",
+      "title": "Resume",
+      "ns": "readline",
+      "name": "resume",
+      "fn": "input.readline.resume();\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "prompt": {
+            "title": "Prompt",
+            "type": "string"
+          },
+          "length": {
+            "title": "Length",
+            "type": "number",
+            "default": null
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Setting prompt"
+      },
+      "description": "Sets the prompt",
+      "title": "Set Prompt",
+      "ns": "readline",
+      "name": "setPrompt",
+      "fn": "input.readline.setPrompt(\n  input.prompt,\n  input.length || undefined\n);\n\noutput.readline = input.readline;\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "data": {
+            "title": "Data",
+            "type": "any",
+            "async": true
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Writing"
+      },
+      "description": "Writes data to output stream.",
+      "async": true,
+      "title": "Write",
+      "ns": "readline",
+      "name": "write",
+      "fn": "on.input.in = function() {\n  input.readline.write(data);\n}\n"
+    }
+  ],
+  "twigs": []
+}

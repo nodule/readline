@@ -1,0 +1,23 @@
+{
+  "name": "resume",
+  "ns": "readline",
+  "title": "Resume",
+  "description": "Resumes the readline input stream",
+  "phrases": {
+    "active": "Resuming"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    }
+  }
+}

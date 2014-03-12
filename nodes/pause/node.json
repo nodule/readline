@@ -1,0 +1,23 @@
+{
+  "name": "pause",
+  "ns": "readline",
+  "title": "Pause",
+  "description": "Pauses the readline input stream, allowing it to be resumed later if needed.",
+  "phrases": {
+    "active": "Pausing"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    }
+  }
+}

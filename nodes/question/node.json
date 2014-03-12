@@ -1,0 +1,27 @@
+{
+  "name": "question",
+  "ns": "readline",
+  "title": "Question",
+  "description": "Prompt with a question",
+  "phrases": {
+    "active": "Questioning"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      },
+      "query": {
+        "title": "Query",
+        "type": "string"
+      }
+    },
+    "output": {
+      "answer": {
+        "title": "Answer",
+        "type": "string"
+      }
+    }
+  }
+}

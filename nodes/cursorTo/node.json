@@ -1,0 +1,34 @@
+{
+  "name": "cursorTo",
+  "ns": "readline",
+  "title": "Cursor To",
+  "description": "Move cursor to the specified position in a given TTY stream.",
+  "require": {
+    "readline": "builtin"
+  },
+  "phrases": {
+    "active": "Moving cursor to {{input.x}}:{{input.y}}"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      },
+      "x": {
+        "title": "X Position",
+        "type": "number"
+      },
+      "y": {
+        "title": "Y Position",
+        "type": "number"
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    }
+  }
+}

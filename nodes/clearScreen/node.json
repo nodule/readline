@@ -1,0 +1,26 @@
+{
+  "name": "clearScreen",
+  "ns": "readline",
+  "title": "Clear Screen",
+  "description": "Clears the screen from the current position of the cursor down. ",
+  "require": {
+    "readline": "builtin"
+  },
+  "phrases": {
+    "active": "Clearing screen"
+  },
+  "ports": {
+    "input": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "createInterface",
+  "ns": "readline",
+  "title": "Create Interface",
+  "description": "Creates a readline Interface instance",
+  "require": {
+    "readline": "builtin"
+  },
+  "phrases": {
+    "active": "Creating interface"
+  },
+  "ports": {
+    "input": {
+      "input": {
+        "title": "Input Stream",
+        "type": "Stream"
+      },
+      "output": {
+        "title": "Output Stream",
+        "type": "Stream"
+      },
+      "terminal": {
+        "title": "Terminal",
+        "type": "boolean",
+        "default": null
+      }
+    },
+    "output": {
+      "readline": {
+        "title": "Readline",
+        "type": "Interface"
+      },
+      "line": {
+        "title": "Line",
+        "type": "any"
+      },
+      "pause": {
+        "title": "Pause",
+        "type": "any"
+      },
+      "resume": {
+        "title": "Resume",
+        "type": "any"
+      },
+      "close": {
+        "title": "Close",
+        "type": "any"
+      },
+      "SIGINT": {
+        "title": "SIGINT",
+        "type": "any"
+      },
+      "SIGTSTP": {
+        "title": "SIGTSTP",
+        "type": "any"
+      },
+      "SIGCONT": {
+        "title": "SIGCONT",
+        "type": "any"
+      }
+    }
+  }
+}
