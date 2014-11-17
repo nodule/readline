@@ -3,9 +3,6 @@
   "ns": "readline",
   "title": "Create Interface",
   "description": "Creates a readline Interface instance",
-  "require": {
-    "readline": "builtin"
-  },
   "phrases": {
     "active": "Creating interface"
   },
@@ -58,6 +55,11 @@
         "title": "SIGCONT",
         "type": "any"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "readline": "builtin"
     }
   }
 }

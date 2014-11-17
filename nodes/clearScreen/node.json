@@ -3,9 +3,6 @@
   "ns": "readline",
   "title": "Clear Screen",
   "description": "Clears the screen from the current position of the cursor down. ",
-  "require": {
-    "readline": "builtin"
-  },
   "phrases": {
     "active": "Clearing screen"
   },
@@ -21,6 +18,11 @@
         "title": "Readline",
         "type": "Interface"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "readline": "builtin"
     }
   }
 }

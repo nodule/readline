@@ -3,9 +3,6 @@
   "ns": "readline",
   "title": "Move Cursor",
   "description": "Move cursor relative to it's current position in a given TTY stream. ",
-  "require": {
-    "readline": "builtin"
-  },
   "phrases": {
     "active": "Moving cursor {{input.x}}:{{input.y}}"
   },
@@ -29,6 +26,11 @@
         "title": "Readline",
         "type": "Interface"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "readline": "builtin"
     }
   }
 }

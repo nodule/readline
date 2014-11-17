@@ -3,9 +3,6 @@
   "ns": "readline",
   "title": "Clear Line",
   "description": "Clears current line of given TTY stream in a specified direction",
-  "require": {
-    "readline": "builtin"
-  },
   "phrases": {
     "active": "Clearing line"
   },
@@ -17,7 +14,11 @@
       },
       "dir": {
         "title": "Direction",
-        "enum": ["left","right","all"],
+        "enum": [
+          "left",
+          "right",
+          "all"
+        ],
         "default": "all"
       }
     },
@@ -26,6 +27,11 @@
         "title": "Readline",
         "type": "Interface"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "readline": "builtin"
     }
   }
 }

@@ -8,6 +8,11 @@
   },
   "nodes": [
     {
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
+      },
       "ports": {
         "input": {
           "readline": {
@@ -34,9 +39,6 @@
       "phrases": {
         "active": "Clearing line"
       },
-      "require": {
-        "readline": "builtin"
-      },
       "description": "Clears current line of given TTY stream in a specified direction",
       "title": "Clear Line",
       "ns": "readline",
@@ -44,6 +46,11 @@
       "fn": "var dir = { left: -1, right: 1, all: 0 };\nreadline.clearLine(input.readline, dir[input.dir]);\noutput.readline = input.readline;\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
+      },
       "ports": {
         "input": {
           "readline": {
@@ -60,9 +67,6 @@
       },
       "phrases": {
         "active": "Clearing screen"
-      },
-      "require": {
-        "readline": "builtin"
       },
       "description": "Clears the screen from the current position of the cursor down. ",
       "title": "Clear Screen",
@@ -95,6 +99,11 @@
       "fn": "input.readline.close();\noutput.readline = input.readline;\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
+      },
       "ports": {
         "input": {
           "input": {
@@ -149,9 +158,6 @@
       "phrases": {
         "active": "Creating interface"
       },
-      "require": {
-        "readline": "builtin"
-      },
       "description": "Creates a readline Interface instance",
       "title": "Create Interface",
       "ns": "readline",
@@ -159,6 +165,11 @@
       "fn": "output = function() {\n\n  var iface = readline.createInterface({\n    input: input.input,\n    output: input.output,\n    terminal: input.terminal || undefined\n  });\n\n  iface.on('line', function(line) {\n    cb({ line: line });\n  });\n\n  iface.on('pause', function() { cb({ pause: '' }); });\n  iface.on('resume', function() { cb({ resume: '' }); });\n  iface.on('close', function() { cb({ close: '' }); });\n  iface.on('SIGINT', function() { cb({ SIGINT: '' }); });\n  iface.on('SIGTSTP', function() { cb({ SIGTSTP: '' }); });\n  iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });\n\n  cb({\n    readline: iface\n  });\n\n};\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
+      },
       "ports": {
         "input": {
           "readline": {
@@ -184,9 +195,6 @@
       "phrases": {
         "active": "Moving cursor to {{input.x}}:{{input.y}}"
       },
-      "require": {
-        "readline": "builtin"
-      },
       "description": "Move cursor to the specified position in a given TTY stream.",
       "title": "Cursor To",
       "ns": "readline",
@@ -194,6 +202,11 @@
       "fn": "readline.cursorTo(input.readline, input.x, input.y);\noutput.readline = input.readline;\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
+      },
       "ports": {
         "input": {
           "readline": {
@@ -218,9 +231,6 @@
       },
       "phrases": {
         "active": "Moving cursor {{input.x}}:{{input.y}}"
-      },
-      "require": {
-        "readline": "builtin"
       },
       "description": "Move cursor relative to it's current position in a given TTY stream. ",
       "title": "Move Cursor",
