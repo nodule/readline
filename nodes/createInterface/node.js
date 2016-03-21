@@ -1,9 +1,9 @@
 output = function() {
 
   var iface = readline.createInterface({
-    input: input.input,
-    output: input.output,
-    terminal: input.terminal || undefined
+    input: $.input,
+    output: $.output,
+    terminal: $.terminal || undefined
   });
 
   iface.on('line', function(line) {

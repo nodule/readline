@@ -1,2 +1,2 @@
-input.readline.prompt(input.preserveCursor || undefined);
-output.readline = input.readline;
+$.readline.prompt($.preserveCursor || undefined);
+output.readline = $.readline;

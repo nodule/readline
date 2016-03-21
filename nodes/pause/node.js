@@ -1,2 +1,2 @@
-input.readline.pause();
-output.readline = input.readline;
+$.readline.pause();
+output.readline = $.readline;

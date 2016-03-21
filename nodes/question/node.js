@@ -1,1 +1,1 @@
-output = [input.readline, 'question', input.query]
+output = [$.readline, 'question', $.query]

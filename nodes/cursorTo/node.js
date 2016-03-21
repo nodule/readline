@@ -1,2 +1,2 @@
-readline.cursorTo(input.readline, input.x, input.y);
-output.readline = input.readline;
+readline.cursorTo($.readline, $.x, $.y);
+output.readline = $.readline;

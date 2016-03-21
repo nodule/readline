@@ -1,2 +1,2 @@
-readline.clearScreen(input.readline);
-output.readline = input.readline;
+readline.clearScreen($.readline);
+output.readline = $.readline;

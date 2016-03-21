@@ -1,2 +1,2 @@
-readline.moveCursor(input.readline, input.x, input.y);
-output.readline = input.readline;
+readline.moveCursor($.readline, $.x, $.y);
+output.readline = $.readline;

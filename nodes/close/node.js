@@ -1,2 +1,2 @@
-input.readline.close();
-output.readline = input.readline;
+$.readline.close();
+output.readline = $.readline;
