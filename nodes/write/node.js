@@ -1,3 +1,3 @@
 on.input.in = function() {
-  input.readline.write(data);
+  input.readline.write(input.in);
 }
