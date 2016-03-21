@@ -1,2 +1,2 @@
 $.readline.prompt($.preserveCursor || undefined);
-output.readline = $.readline;
+output.readline = $.get('readline');

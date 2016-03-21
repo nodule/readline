@@ -1,2 +1,2 @@
 readline.cursorTo($.readline, $.x, $.y);
-output.readline = $.readline;
+output.readline = $.get('readline');

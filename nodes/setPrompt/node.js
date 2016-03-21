@@ -3,4 +3,4 @@ $.readline.setPrompt(
   $.length || undefined
 );
 
-output.readline = $.readline;
+output.readline = $.get('readline');

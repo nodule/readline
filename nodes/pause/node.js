@@ -1,2 +1,2 @@
 $.readline.pause();
-output.readline = $.readline;
+output.readline = $.get('readline');

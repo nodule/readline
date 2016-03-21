@@ -1,2 +1,2 @@
 readline.clearScreen($.readline);
-output.readline = $.readline;
+output.readline = $.get('readline');

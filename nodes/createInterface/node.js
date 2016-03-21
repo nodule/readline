@@ -7,7 +7,7 @@ output = function() {
   });
 
   iface.on('line', function(line) {
-    cb({ line: line });
+    cb({ line: $.create(line) });
   });
 
   iface.on('pause', function() { cb({ pause: '' }); });
@@ -18,7 +18,7 @@ output = function() {
   iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });
 
   cb({
-    readline: iface
+    readline: $.create(iface)
   });
 
 };
