@@ -24,9 +24,9 @@ module.exports = {
       }
     }
   },
-  fn: function question(input, output, state, done, cb, on) {
+  fn: function question(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.question(input.query, function questionCallback(answer) {
+      $.readline.question($.query, function questionCallback(answer) {
         cb({
           answer: answer
         });

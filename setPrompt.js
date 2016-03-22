@@ -29,14 +29,14 @@ module.exports = {
       }
     }
   },
-  fn: function setPrompt(input, output, state, done, cb, on) {
+  fn: function setPrompt(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.setPrompt(
-        input.prompt,
-        input.length || undefined
+      $.readline.setPrompt(
+        $.prompt,
+        $.length || undefined
       );
 
-      output.readline = input.readline;
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

@@ -33,10 +33,10 @@ module.exports = {
       readline: require('readline')
     }
   },
-  fn: function cursorTo(input, output, state, done, cb, on, readline) {
+  fn: function cursorTo(input, $, output, state, done, cb, on, readline) {
     var r = function() {
-      readline.cursorTo(input.readline, input.x, input.y);
-      output.readline = input.readline;
+      readline.cursorTo($.readline, $.x, $.y);
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

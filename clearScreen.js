@@ -25,10 +25,10 @@ module.exports = {
       readline: require('readline')
     }
   },
-  fn: function clearScreen(input, output, state, done, cb, on, readline) {
+  fn: function clearScreen(input, $, output, state, done, cb, on, readline) {
     var r = function() {
-      readline.clearScreen(input.readline);
-      output.readline = input.readline;
+      readline.clearScreen($.readline);
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

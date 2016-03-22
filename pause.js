@@ -20,10 +20,10 @@ module.exports = {
       }
     }
   },
-  fn: function pause(input, output, state, done, cb, on) {
+  fn: function pause(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.pause();
-      output.readline = input.readline;
+      $.readline.pause();
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

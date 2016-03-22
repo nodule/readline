@@ -33,15 +33,15 @@ module.exports = {
       readline: require('readline')
     }
   },
-  fn: function clearLine(input, output, state, done, cb, on, readline) {
+  fn: function clearLine(input, $, output, state, done, cb, on, readline) {
     var r = function() {
       var dir = {
         left: -1,
         right: 1,
         all: 0
       };
-      readline.clearLine(input.readline, dir[input.dir]);
-      output.readline = input.readline;
+      readline.clearLine($.readline, dir[$.dir]);
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

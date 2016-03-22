@@ -25,10 +25,10 @@ module.exports = {
       }
     }
   },
-  fn: function prompt(input, output, state, done, cb, on) {
+  fn: function prompt(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.prompt(input.preserveCursor || undefined);
-      output.readline = input.readline;
+      $.readline.prompt($.preserveCursor || undefined);
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

@@ -62,17 +62,17 @@ module.exports = {
       readline: require('readline')
     }
   },
-  fn: function createInterface(input, output, state, done, cb, on, readline) {
+  fn: function createInterface(input, $, output, state, done, cb, on, readline) {
     var r = function() {
       var iface = readline.createInterface({
-        input: input.input,
-        output: input.output,
-        terminal: input.terminal || undefined
+        input: $.input,
+        output: $.output,
+        terminal: $.terminal || undefined
       });
 
       iface.on('line', function(line) {
         output({
-          line: line
+          line: $.create(line)
         });
       });
 
@@ -108,7 +108,7 @@ module.exports = {
       });
 
       output({
-        readline: iface
+        readline: $.create(iface)
       });
     }.call(this);
     return {

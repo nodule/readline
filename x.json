@@ -43,7 +43,7 @@
       "title": "Clear Line",
       "ns": "readline",
       "name": "clearLine",
-      "fn": "var dir = { left: -1, right: 1, all: 0 };\nreadline.clearLine(input.readline, dir[input.dir]);\noutput.readline = input.readline;\n"
+      "fn": "var dir = { left: -1, right: 1, all: 0 };\nreadline.clearLine($.readline, dir[$.dir]);\noutput.readline = $.get('readline');\n"
     },
     {
       "dependencies": {
@@ -72,7 +72,7 @@
       "title": "Clear Screen",
       "ns": "readline",
       "name": "clearScreen",
-      "fn": "readline.clearScreen(input.readline);\noutput.readline = input.readline;\n"
+      "fn": "readline.clearScreen($.readline);\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -96,7 +96,7 @@
       "title": "Close",
       "ns": "readline",
       "name": "close",
-      "fn": "input.readline.close();\noutput.readline = input.readline;\n"
+      "fn": "$.readline.close();\noutput.readline = $.get('readline');\n"
     },
     {
       "dependencies": {
@@ -162,7 +162,7 @@
       "title": "Create Interface",
       "ns": "readline",
       "name": "createInterface",
-      "fn": "output = function() {\n\n  var iface = readline.createInterface({\n    input: input.input,\n    output: input.output,\n    terminal: input.terminal || undefined\n  });\n\n  iface.on('line', function(line) {\n    cb({ line: line });\n  });\n\n  iface.on('pause', function() { cb({ pause: '' }); });\n  iface.on('resume', function() { cb({ resume: '' }); });\n  iface.on('close', function() { cb({ close: '' }); });\n  iface.on('SIGINT', function() { cb({ SIGINT: '' }); });\n  iface.on('SIGTSTP', function() { cb({ SIGTSTP: '' }); });\n  iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });\n\n  cb({\n    readline: iface\n  });\n\n};\n"
+      "fn": "output = function() {\n\n  var iface = readline.createInterface({\n    input: $.input,\n    output: $.output,\n    terminal: $.terminal || undefined\n  });\n\n  iface.on('line', function(line) {\n    cb({ line: $.create(line) });\n  });\n\n  iface.on('pause', function() { cb({ pause: '' }); });\n  iface.on('resume', function() { cb({ resume: '' }); });\n  iface.on('close', function() { cb({ close: '' }); });\n  iface.on('SIGINT', function() { cb({ SIGINT: '' }); });\n  iface.on('SIGTSTP', function() { cb({ SIGTSTP: '' }); });\n  iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });\n\n  cb({\n    readline: $.create(iface)\n  });\n\n};\n"
     },
     {
       "dependencies": {
@@ -199,7 +199,7 @@
       "title": "Cursor To",
       "ns": "readline",
       "name": "cursorTo",
-      "fn": "readline.cursorTo(input.readline, input.x, input.y);\noutput.readline = input.readline;\n"
+      "fn": "readline.cursorTo($.readline, $.x, $.y);\noutput.readline = $.get('readline');\n"
     },
     {
       "dependencies": {
@@ -236,7 +236,7 @@
       "title": "Move Cursor",
       "ns": "readline",
       "name": "moveCursor",
-      "fn": "readline.moveCursor(input.readline, input.x, input.y);\noutput.readline = input.readline;\n"
+      "fn": "readline.moveCursor($.readline, $.x, $.y);\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -260,7 +260,7 @@
       "title": "Pause",
       "ns": "readline",
       "name": "pause",
-      "fn": "input.readline.pause();\noutput.readline = input.readline;\n"
+      "fn": "$.readline.pause();\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -289,7 +289,7 @@
       "title": "Prompt",
       "ns": "readline",
       "name": "prompt",
-      "fn": "input.readline.prompt(input.preserveCursor || undefined);\noutput.readline = input.readline;\n"
+      "fn": "$.readline.prompt($.preserveCursor || undefined);\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -317,7 +317,7 @@
       "title": "Question",
       "ns": "readline",
       "name": "question",
-      "fn": "output = [input.readline, 'question', input.query]\n"
+      "fn": "output = [$.readline, 'question', $.query]\n"
     },
     {
       "ports": {
@@ -341,7 +341,7 @@
       "title": "Resume",
       "ns": "readline",
       "name": "resume",
-      "fn": "input.readline.resume();\noutput.readline = input.readline;\n"
+      "fn": "$.readline.resume();\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -374,7 +374,7 @@
       "title": "Set Prompt",
       "ns": "readline",
       "name": "setPrompt",
-      "fn": "input.readline.setPrompt(\n  input.prompt,\n  input.length || undefined\n);\n\noutput.readline = input.readline;\n"
+      "fn": "$.readline.setPrompt(\n  $.prompt,\n  $.length || undefined\n);\n\noutput.readline = $.get('readline');\n"
     },
     {
       "ports": {
@@ -404,7 +404,7 @@
       "title": "Write",
       "ns": "readline",
       "name": "write",
-      "fn": "on.input.in = function() {\n  input.readline.write(data);\n}\n"
+      "fn": "on.input.in = function() {\n  $.readline.write($.in);\n}\n"
     }
   ],
   "twigs": []

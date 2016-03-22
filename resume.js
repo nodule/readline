@@ -20,10 +20,10 @@ module.exports = {
       }
     }
   },
-  fn: function resume(input, output, state, done, cb, on) {
+  fn: function resume(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.resume();
-      output.readline = input.readline;
+      $.readline.resume();
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,

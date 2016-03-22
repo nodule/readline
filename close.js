@@ -20,10 +20,10 @@ module.exports = {
       }
     }
   },
-  fn: function close(input, output, state, done, cb, on) {
+  fn: function close(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.readline.close();
-      output.readline = input.readline;
+      $.readline.close();
+      output.readline = $.get('readline');
     }.call(this);
     return {
       output: output,
