@@ -8,10 +8,12 @@
   },
   "nodes": [
     {
-      "dependencies": {
-        "npm": {
-          "readline": "builtin"
-        }
+      "name": "clearLine",
+      "ns": "readline",
+      "title": "Clear Line",
+      "description": "Clears current line of given TTY stream in a specified direction",
+      "phrases": {
+        "active": "Clearing line"
       },
       "ports": {
         "input": {
@@ -36,45 +38,21 @@
           }
         }
       },
-      "phrases": {
-        "active": "Clearing line"
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
       },
-      "description": "Clears current line of given TTY stream in a specified direction",
-      "title": "Clear Line",
-      "ns": "readline",
-      "name": "clearLine",
       "fn": "var dir = { left: -1, right: 1, all: 0 };\nreadline.clearLine($.readline, dir[$.dir]);\noutput.readline = $.get('readline');\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "readline": "builtin"
-        }
-      },
-      "ports": {
-        "input": {
-          "readline": {
-            "title": "Readline",
-            "type": "Interface"
-          }
-        },
-        "output": {
-          "readline": {
-            "title": "Readline",
-            "type": "Interface"
-          }
-        }
-      },
+      "name": "clearScreen",
+      "ns": "readline",
+      "title": "Clear Screen",
+      "description": "Clears the screen from the current position of the cursor down. ",
       "phrases": {
         "active": "Clearing screen"
       },
-      "description": "Clears the screen from the current position of the cursor down. ",
-      "title": "Clear Screen",
-      "ns": "readline",
-      "name": "clearScreen",
-      "fn": "readline.clearScreen($.readline);\noutput.readline = $.get('readline');\n"
-    },
-    {
       "ports": {
         "input": {
           "readline": {
@@ -89,20 +67,44 @@
           }
         }
       },
-      "phrases": {
-        "active": "Closing"
-      },
-      "description": "Closes the Interface instance, relinquishing control on the input and output streams.",
-      "title": "Close",
-      "ns": "readline",
-      "name": "close",
-      "fn": "$.readline.close();\noutput.readline = $.get('readline');\n"
-    },
-    {
       "dependencies": {
         "npm": {
           "readline": "builtin"
         }
+      },
+      "fn": "readline.clearScreen($.readline);\noutput.readline = $.get('readline');\n"
+    },
+    {
+      "name": "close",
+      "ns": "readline",
+      "title": "Close",
+      "description": "Closes the Interface instance, relinquishing control on the input and output streams.",
+      "phrases": {
+        "active": "Closing"
+      },
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
+      "fn": "$.readline.close();\noutput.readline = $.get('readline');\n"
+    },
+    {
+      "name": "createInterface",
+      "ns": "readline",
+      "title": "Create Interface",
+      "description": "Creates a readline Interface instance",
+      "phrases": {
+        "active": "Creating interface"
       },
       "ports": {
         "input": {
@@ -155,57 +157,57 @@
           }
         }
       },
-      "phrases": {
-        "active": "Creating interface"
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
       },
-      "description": "Creates a readline Interface instance",
-      "title": "Create Interface",
-      "ns": "readline",
-      "name": "createInterface",
       "fn": "output = function() {\n\n  var iface = readline.createInterface({\n    input: $.input,\n    output: $.output,\n    terminal: $.terminal || undefined\n  });\n\n  iface.on('line', function(line) {\n    cb({ line: $.create(line) });\n  });\n\n  iface.on('pause', function() { cb({ pause: '' }); });\n  iface.on('resume', function() { cb({ resume: '' }); });\n  iface.on('close', function() { cb({ close: '' }); });\n  iface.on('SIGINT', function() { cb({ SIGINT: '' }); });\n  iface.on('SIGTSTP', function() { cb({ SIGTSTP: '' }); });\n  iface.on('SIGCONT', function() { cb({ SIGCONT: '' }); });\n\n  cb({\n    readline: $.create(iface)\n  });\n\n};\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "readline": "builtin"
-        }
-      },
-      "ports": {
-        "input": {
-          "readline": {
-            "title": "Readline",
-            "type": "Interface"
-          },
-          "x": {
-            "title": "X Position",
-            "type": "number"
-          },
-          "y": {
-            "title": "Y Position",
-            "type": "number"
-          }
-        },
-        "output": {
-          "readline": {
-            "title": "Readline",
-            "type": "Interface"
-          }
-        }
-      },
+      "name": "cursorTo",
+      "ns": "readline",
+      "title": "Cursor To",
+      "description": "Move cursor to the specified position in a given TTY stream.",
       "phrases": {
         "active": "Moving cursor to {{input.x}}:{{input.y}}"
       },
-      "description": "Move cursor to the specified position in a given TTY stream.",
-      "title": "Cursor To",
-      "ns": "readline",
-      "name": "cursorTo",
-      "fn": "readline.cursorTo($.readline, $.x, $.y);\noutput.readline = $.get('readline');\n"
-    },
-    {
+      "ports": {
+        "input": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          },
+          "x": {
+            "title": "X Position",
+            "type": "number"
+          },
+          "y": {
+            "title": "Y Position",
+            "type": "number"
+          }
+        },
+        "output": {
+          "readline": {
+            "title": "Readline",
+            "type": "Interface"
+          }
+        }
+      },
       "dependencies": {
         "npm": {
           "readline": "builtin"
         }
+      },
+      "fn": "readline.cursorTo($.readline, $.x, $.y);\noutput.readline = $.get('readline');\n"
+    },
+    {
+      "name": "moveCursor",
+      "ns": "readline",
+      "title": "Move Cursor",
+      "description": "Move cursor relative to it's current position in a given TTY stream. ",
+      "phrases": {
+        "active": "Moving cursor {{input.x}}:{{input.y}}"
       },
       "ports": {
         "input": {
@@ -229,16 +231,21 @@
           }
         }
       },
-      "phrases": {
-        "active": "Moving cursor {{input.x}}:{{input.y}}"
+      "dependencies": {
+        "npm": {
+          "readline": "builtin"
+        }
       },
-      "description": "Move cursor relative to it's current position in a given TTY stream. ",
-      "title": "Move Cursor",
-      "ns": "readline",
-      "name": "moveCursor",
       "fn": "readline.moveCursor($.readline, $.x, $.y);\noutput.readline = $.get('readline');\n"
     },
     {
+      "name": "pause",
+      "ns": "readline",
+      "title": "Pause",
+      "description": "Pauses the readline input stream, allowing it to be resumed later if needed.",
+      "phrases": {
+        "active": "Pausing"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -253,16 +260,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Pausing"
-      },
-      "description": "Pauses the readline input stream, allowing it to be resumed later if needed.",
-      "title": "Pause",
-      "ns": "readline",
-      "name": "pause",
       "fn": "$.readline.pause();\noutput.readline = $.get('readline');\n"
     },
     {
+      "name": "prompt",
+      "ns": "readline",
+      "title": "Prompt",
+      "description": "Readies readline for input from the user, putting the current setPrompt options on a new line, giving the user a new spot to write. Set preserveCursor to true to prevent the cursor placement being reset to 0.\n This will also resume the input stream used with createInterface if it has been paused. ",
+      "phrases": {
+        "active": "Prompting"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -282,16 +289,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Prompting"
-      },
-      "description": "Readies readline for input from the user, putting the current setPrompt options on a new line, giving the user a new spot to write. Set preserveCursor to true to prevent the cursor placement being reset to 0.\n This will also resume the input stream used with createInterface if it has been paused. ",
-      "title": "Prompt",
-      "ns": "readline",
-      "name": "prompt",
       "fn": "$.readline.prompt($.preserveCursor || undefined);\noutput.readline = $.get('readline');\n"
     },
     {
+      "name": "question",
+      "ns": "readline",
+      "title": "Question",
+      "description": "Prompt with a question",
+      "phrases": {
+        "active": "Questioning"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -310,16 +317,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Questioning"
-      },
-      "description": "Prompt with a question",
-      "title": "Question",
-      "ns": "readline",
-      "name": "question",
       "fn": "output = [$.readline, 'question', $.query]\n"
     },
     {
+      "name": "resume",
+      "ns": "readline",
+      "title": "Resume",
+      "description": "Resumes the readline input stream",
+      "phrases": {
+        "active": "Resuming"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -334,16 +341,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Resuming"
-      },
-      "description": "Resumes the readline input stream",
-      "title": "Resume",
-      "ns": "readline",
-      "name": "resume",
       "fn": "$.readline.resume();\noutput.readline = $.get('readline');\n"
     },
     {
+      "name": "setPrompt",
+      "ns": "readline",
+      "title": "Set Prompt",
+      "description": "Sets the prompt",
+      "phrases": {
+        "active": "Setting prompt"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -367,16 +374,17 @@
           }
         }
       },
-      "phrases": {
-        "active": "Setting prompt"
-      },
-      "description": "Sets the prompt",
-      "title": "Set Prompt",
-      "ns": "readline",
-      "name": "setPrompt",
       "fn": "$.readline.setPrompt(\n  $.prompt,\n  $.length || undefined\n);\n\noutput.readline = $.get('readline');\n"
     },
     {
+      "name": "write",
+      "ns": "readline",
+      "title": "Write",
+      "async": true,
+      "description": "Writes data to output stream.",
+      "phrases": {
+        "active": "Writing"
+      },
       "ports": {
         "input": {
           "readline": {
@@ -396,16 +404,7 @@
           }
         }
       },
-      "phrases": {
-        "active": "Writing"
-      },
-      "description": "Writes data to output stream.",
-      "async": true,
-      "title": "Write",
-      "ns": "readline",
-      "name": "write",
       "fn": "on.input.in = function() {\n  $.readline.write($.in);\n}\n"
     }
-  ],
-  "twigs": []
+  ]
 }
